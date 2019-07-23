@@ -1,0 +1,90 @@
+div.__MOCKUP__ {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+/* 线 */
+div.__MOCKUP__.line {
+    border: 0.5px solid #419bf9;
+    z-index: 1000000;
+}
+
+div.line.seleted {
+    border-color: #EE6723;
+    z-index: 1000000;
+}
+
+/* 辅助线虚线 */
+div.line.guide {
+    border: 0.5px dashed #419bf9;
+    z-index: 100000;
+}
+
+div.line.match {
+    z-index: 100000;
+}
+
+/* 四个小圆点 */
+div.line.point {
+    position: absolute;
+    width: 5px !important;
+    height: 5px !important;
+    background: #FFF;
+    border: 1px solid #EE6723;
+    border-radius: 50%;
+    z-index: 100000;
+}
+
+/* 标签 */
+div.line.seleted::before,
+div.line.trick::before {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: -23px;
+    transform: translateX(-50%);
+    content: attr(data-width);
+    font-size: 12px;
+    color: #FFF;
+    padding: 4px;
+    background: #EE6723;
+    border-radius: 2px;
+}
+
+body.has-seleted div.line.vertical.seleted.d-r::before {
+    content: attr(data-height);
+    left: auto;
+    right: 0;
+    top: 50%;
+    transform: translateX(calc(100% + 3px)) translateY(-50%);
+}
+
+body.has-seleted div.line.seleted.d-t::before,
+body.has-seleted div.line.seleted.d-r::before {
+    display: block;
+}
+
+div.line.trick.vertical.d-t::before,
+div.line.trick.vertical.d-b::before {
+    content: attr(data-height);
+    top: 50%;
+    left: 23px;
+}
+
+div.line.trick.d-l::before,
+div.line.trick.d-r::before {
+    content: attr(data-width);
+}
+
+body.has-diff div.line.trick::before {
+    display: block;
+}
+
+div.line.vertical[data-height="0px"]::before,
+div.line.horizonatal[data-width="0px"]::before {
+    display: none !important;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mockup Html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            color: #252525;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .content {
+            display: flex;
+            padding: 10px 10px 0 30px;
+        }
+
+        .content .left {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .content .right {
+            text-align: center;
+            opacity: 0;
+        }
+
+        .content .right img {
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+
+        h5 {
+            margin: 0;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .actions button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            color: #636363;
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            margin-top: 9px;
+            padding: 10px;
+            text-align: center;
+            width: 400px;
+        }
+
+        footer a {
+            color: #4285f4;
+            display: inline;
+            font-size: 11px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        a#donate {
+            position: absolute;
+            right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="left">
+            <div class="tips">
+                <h5>使用提示：按下 ctrl 可手动选中当前鼠标 hover 的元素</h5>
+            </div>
+            <div class="actions">
+                插件当前<span id="status">运行</span>中
+                <button id="pause-btn">暂停</button>
+            </div>
+        </div>
+        <div class="right" id="qrcode">
+            <img width="80" src="./../imgs/alipay.jpg" alt="扫描支付宝，向我捐赠哈哈哈">
+            <p style="margin: 0;">支付宝</p>
+        </div>
+    </div>
+    <footer>
+        © <span id="year">2018</span>
+        <span id="author">ecuplxd</span> - <a title="12050901053@ecupl.edu.cn"
+            href="mailto:12050901053@ecupl.edu.cn">bug、issue、feature</a>
+        <a href="#" title="觉得很棒，捐赠小兑~" id="donate">捐赠</a>
+    </footer>
+    <script src="./popup.js"></script>
+</body>
+
+</html>

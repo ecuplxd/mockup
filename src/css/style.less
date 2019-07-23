@@ -1,0 +1,106 @@
+@border-color: #419bf9;
+@selected-border-color: #EE6723;
+@bg-color: #fff;
+@size12: 12px;
+@font-size: 12px;
+@prefix: "__MOCKUP__";
+
+div.mockup {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    position: absolute;
+
+    &.line {
+        border: 0.5px solid @border-colo;
+        z-index: 1000000;
+
+        &.seleted {
+            border-color: @selected-border-color;
+            z-index: 1000000;
+        }
+
+        &.guide {
+            border: 0.5px dashed @border-color;
+            z-index: 100000;
+        }
+
+        &.match {
+            z-index: 100000;
+        }
+
+        &.seleted,
+        &.trick {
+            &::before {
+                position: absolute;
+                display: none;
+                left: 50%;
+                top: -23px;
+                transform: translateX(-50%);
+                content: attr(data-width);
+                font-size: 12px;
+                color: @bg-color;
+                padding: 4px;
+                background: @selected-border-color;
+                border-radius: 2px;
+            }
+
+            &.vertical.d-t::before,
+            &.vertical.d-b::before {
+                content: attr(data-height);
+                top: 50%;
+                left: 23px;
+            }
+
+            &.d-l::before,
+            &.d-r::before {
+                content: attr(data-width);
+            }
+        }
+
+        &.vertical[data-height="0px"]::before,
+        .horizonatal[data-width="0px"]::before {
+            display: none;
+        }
+    }
+
+    &.point {
+        position: absolute;
+        width: 5px !important;
+        height: 5px !important;
+        background: @bg-color;
+        border: 1px solid @selected-border-color;
+        border-radius: 50%;
+        z-index: 100000;
+    }
+}
+
+body {
+    &.no-in-mousemove {
+        div.line.vertical.seleted.d-r::before {
+            content: attr(data-height);
+            left: auto;
+            right: 0;
+            top: 50%;
+            transform: translateX(calc(100% + 3px)) translateY(-50%);
+        }
+
+        div.line.seleted.d-t::before,
+        div.line.seleted.d-r::before {
+            display: block;
+        }
+    }
+
+    &.in-mousemove {
+        .line.trick::before {
+            display: block;
+        }
+
+        div.line.trick.height-zero::before,
+        div.line.trick.width-zero::before {
+            display: none;
+        }
+    }
+}
