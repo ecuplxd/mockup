@@ -16,7 +16,7 @@ var _updateLocalStorage = () => {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const href = request.href;
     if (_pause[href] === undefined) {
-        _pause[href] = false;
+        _pause[href] = true;
         _updateLocalStorage();
     }
     _sendMessageToContentScript({ value: _pause[href] });

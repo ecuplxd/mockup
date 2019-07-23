@@ -7,8 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body {
+            margin: 0;
+        }
+
         div.container,
-        div.aaaa,
+        div.full-width,
         div.container>div {
             border: 1px solid;
             margin: 10px;
@@ -24,6 +28,10 @@
         div.container>div {
             background-color: white;
             flex: 0 0 25%;
+        }
+
+        div.full-width {
+            margin: 10px 0;
         }
     </style>
     <!-- <link rel="stylesheet" href="./src/css/style.css"> -->
@@ -69,10 +77,10 @@
             <span>span</span>
         </div>
     </div>
-    <div class="aaaa">
+    <div class="full-width">
         中间
     </div>
-    <div class="aaaa">
+    <div class="full-width">
         下面
     </div>
     <div class="container">
@@ -110,10 +118,10 @@
             <span>span</span>
         </div>
     </div>
-    <div class="aaaa">
+    <div class="full-width">
         中间
     </div>
-    <div class="aaaa">
+    <div class="full-width">
         下面
     </div>
     <div class="container">

@@ -121,8 +121,9 @@ export const getElDocumentPos = (el: HTMLElement) => {
     return {
         left: box.left + offsets.x,
         top: box.top + offsets.y,
-        right: box.left + offsets.x + w,
-        bottom: box.top + offsets.y + h,
+        // border 占了 1px
+        right: box.left + offsets.x + w - 1,
+        bottom: box.top + offsets.y + h - 1,
     };
 }
 

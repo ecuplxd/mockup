@@ -70,7 +70,7 @@ div.mockup {
         position: absolute;
         width: 5px !important;
         height: 5px !important;
-        background: @bg-color;
+        background: @selected-border-color;
         border: 1px solid @selected-border-color;
         border-radius: 50%;
         z-index: 100000;
@@ -84,7 +84,7 @@ body {
             left: auto;
             right: 0;
             top: 50%;
-            transform: translateX(calc(100% + 3px)) translateY(-50%);
+            transform: translateX(calc(100% - 50px)) translateY(-50%);
         }
 
         div.line.seleted.d-t::before,

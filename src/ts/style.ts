@@ -28,7 +28,7 @@ body.${HASSELETED} div.${LINE}.${VERTICAL}.${SELETED}.${IDirection.RIGHT}::befor
     left: auto;
     right: 0;
     top: 50%;
-    transform: translateX(calc(100% + 3px)) translateY(-50%);
+    transform: translateX(calc(100% - 50px)) translateY(-50%);
 }
 
 body.${HASSELETED} div.${LINE}.${SELETED}.${IDirection.TOP}::before,
@@ -71,7 +71,7 @@ div.${LINE}.${POINT} {
     position: absolute;
     width: 5px !important;
     height: 5px !important;
-    background: #FFF;
+    background: #EE6723;
     border: 1px solid #EE6723;
     border-radius: 50%;
     z-index: 100000;

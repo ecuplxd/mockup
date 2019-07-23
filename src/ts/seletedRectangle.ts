@@ -25,10 +25,11 @@ export class SeletedRectangle extends Rectangle {
     setPos(pos: IPos) {
         super.setPos(pos);
         // 上左 上右 下左 下右的四个点
-        this.ptl_point = { x: this.ptl.x - 3, y: this.ptl.y - 3 };
-        this.ptr_point = { x: this.ptr.x, y: this.ptr.y - 3 };
-        this.pbl_point = { x: this.pbl.x - 3, y: this.pbl.y };
-        this.pbr_point = { x: this.pbr.x, y: this.pbr.y };
+        const delta = 4.5;
+        this.ptl_point = { x: this.ptl.x, y: this.ptl.y };
+        this.ptr_point = { x: this.ptr.x - delta, y: this.ptr.y };
+        this.pbl_point = { x: this.pbl.x, y: this.pbl.y - delta };
+        this.pbr_point = { x: this.pbr.x - delta, y: this.pbr.y - delta };
         return this;
     }
 
