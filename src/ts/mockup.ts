@@ -29,8 +29,9 @@ class Mockup {
     body = document.body;
     oldCls = `${PREFIX} ` + this.body.className.trim();
 
-    constructor() {
+    constructor(pause: boolean) {
         this.handlerEvent = this.handlerEvent.bind(this);
+        this._pause = pause;
         this.init();
     }
 

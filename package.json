@@ -5,6 +5,7 @@
     "dependencies": {},
     "devDependencies": {
         "autoprefixer": "^9.1.3",
+        "cross-env": "^5.2.0",
         "css-loader": "^1.0.0",
         "less": "^3.8.1",
         "less-loader": "^4.1.0",
@@ -18,8 +19,8 @@
         "webpack-serve": "^2.0.2"
     },
     "scripts": {
-        "start": "webpack-dev-server --mode development --port 4200 --output-public-path dist",
-        "build": "webpack --mode production --progress --colors",
+        "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --port 4200 --output-public-path dist",
+        "build": "cross-env NODE_ENV=production webpack --mode production --progress --colors",
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "webpack -w"
     },
