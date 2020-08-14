@@ -4,51 +4,49 @@ const status = document.getElementById('status');
 const donate = document.getElementById('donate');
 const qrcode = document.getElementById('qrcode');
 
-
-const getCurTabState = callback => {
-    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-        const url = tabs[0].url;
-        for (const key in bg._pause) {
-            if (bg._pause.hasOwnProperty(key)) {
-                if (url.includes(key)) {
-                    callback.call(null, key);
-                    break;
-                }
-            }
+const getCurTabState = (callback) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const url = tabs[0].url;
+    for (const key in bg._pause) {
+      if (bg._pause.hasOwnProperty(key)) {
+        if (url.includes(key)) {
+          callback.call(null, key);
+          break;
         }
-    });
-}
-
-const setStateText = _pause => {
-    if (_pause) {
-        pauseBtn.innerText = '运行';
-        status.innerText = '暂停';
-    } else {
-        pauseBtn.innerText = '暂停';
-        status.innerText = '运行';
+      }
     }
-}
+  });
+};
 
+const setStateText = (_pause) => {
+  if (_pause) {
+    pauseBtn.innerText = '运行';
+    status.innerText = '暂停';
+  } else {
+    pauseBtn.innerText = '暂停';
+    status.innerText = '运行';
+  }
+};
 
-getCurTabState(url => {
-    const pause = bg._pause[url];
-    setStateText(pause);
-    bg._sendMessageToContentScript({ value: pause });
+getCurTabState((url) => {
+  const pause = bg._pause[url];
+  setStateText(pause);
+  bg._sendMessageToContentScript({ value: pause });
 });
 
 pauseBtn.onclick = () => {
-    getCurTabState(url => {
-        const pause = bg._pause[url] = !bg._pause[url];
-        setStateText(pause);
-        bg._updateLocalStorage();
-        bg._sendMessageToContentScript({ value: pause });
-    });
-}
+  getCurTabState((url) => {
+    const pause = (bg._pause[url] = !bg._pause[url]);
+    setStateText(pause);
+    bg._updateLocalStorage();
+    bg._sendMessageToContentScript({ value: pause });
+  });
+};
 
 donate.onmouseover = () => {
-    qrcode.style.opacity = 1;
-}
+  qrcode.style.opacity = 1;
+};
 
 donate.onmouseout = () => {
-    qrcode.style.opacity = 0;
-}
+  qrcode.style.opacity = 0;
+};

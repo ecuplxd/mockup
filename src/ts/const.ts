@@ -36,12 +36,12 @@ export const STYLE = 'style';
 export const EMPTYSTRING = '';
 
 export const enum IDirection {
-    TOP = 'd-t',
-    RIGHT = 'd-r',
-    BOTTOM = 'd-b',
-    LEFT = 'd-l',
-    TOPLEFT = 'd-tl',
-    TOPRIGHT = 'd-tr',
-    BOTTOMLEFT = 'd-bl',
-    BOTTOMRIGH = 'd-br'
-};
+  TOP = 'd-t',
+  RIGHT = 'd-r',
+  BOTTOM = 'd-b',
+  LEFT = 'd-l',
+  TOPLEFT = 'd-tl',
+  TOPRIGHT = 'd-tr',
+  BOTTOMLEFT = 'd-bl',
+  BOTTOMRIGH = 'd-br',
+}

@@ -1,38 +1,28 @@
 {
-    "name": "MockupHtml",
-    "author": "12050901053@ecupl.edu.cn",
-    "manifest_version": 2,
-    "version": "0.0.4",
-    "description": "Mockup html layout",
-    "icons": {
-        "16": "./imgs/me16.png",
-        "48": "./imgs/me48.png",
-        "128": "./imgs/me128.png"
-    },
-    "background": {
-        "scripts": [
-            "./background.js"
-        ]
-    },
-    "browser_action": {
-        "default_title": "MockupHtml",
-        "default_popup": "./popup/popup.html"
-    },
-    "permissions": [
-        "contextMenus",
-        "tabs"
-    ],
-    "content_scripts": [
-        {
-            "js": [
-                "./index.js"
-            ],
-            "matches": [
-                "http://*/*",
-                "https://*/*"
-            ],
-            "match_about_blank": true,
-            "run_at": "document_end"
-        }
-    ]
+  "name": "MockupHtml",
+  "author": "12050901053@ecupl.edu.cn",
+  "manifest_version": 2,
+  "version": "0.0.4",
+  "description": "Mockup html layout",
+  "icons": {
+    "16": "./imgs/me16.png",
+    "48": "./imgs/me48.png",
+    "128": "./imgs/me128.png"
+  },
+  "background": {
+    "scripts": ["./background.js"]
+  },
+  "browser_action": {
+    "default_title": "MockupHtml",
+    "default_popup": "./popup/popup.html"
+  },
+  "permissions": ["contextMenus", "tabs"],
+  "content_scripts": [
+    {
+      "js": ["./index.js"],
+      "matches": ["http://*/*", "https://*/*"],
+      "match_about_blank": true,
+      "run_at": "document_end"
+    }
+  ]
 }
