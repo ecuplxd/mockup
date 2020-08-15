@@ -1,13 +1,13 @@
 {
-  "name": "MockupHtml",
+  "name": "__MSG_extName__",
   "author": "12050901053@ecupl.edu.cn",
   "manifest_version": 2,
-  "version": "0.0.6",
-  "description": "Mockup html layout",
+  "version": "0.0.8",
+  "description": "__MSG_extDescription__",
   "icons": {
-    "16": "./imgs/me16.png",
-    "48": "./imgs/me48.png",
-    "128": "./imgs/me128.png"
+    "16": "./imgs/logo16.png",
+    "48": "./imgs/logo48.png",
+    "128": "./imgs/logo128.png"
   },
   "background": {
     "scripts": ["./background.js"]

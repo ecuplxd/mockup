@@ -1,4 +1,12 @@
 {
+  "extName": {
+    "message": "Mockup HTML",
+    "description": ""
+  },
+  "extDescription": {
+    "message": "Enhance the element selection function of the debugging tool, which can mark element borders and sizes, and mark the spacing between selected elements.",
+    "description": ""
+  },
   "alipay": {
     "message": "Alipay",
     "description": ""

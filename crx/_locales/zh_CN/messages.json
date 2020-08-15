@@ -1,4 +1,12 @@
 {
+  "extName": {
+    "message": "HTML 元素标记器",
+    "description": ""
+  },
+  "extDescription": {
+    "message": "增强调试工具的元素选择功能，能够标记元素边框和大小，标记选择的元素间间距。",
+    "description": ""
+  },
   "alipay": {
     "message": "支付宝",
     "description": ""

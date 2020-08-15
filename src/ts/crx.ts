@@ -29,7 +29,6 @@ if (chrome_exits) {
 
   if (onMessage) {
     onMessage.addListener((request: any, sender: any, sendResponse: any) => {
-      console.log(request);
       if (request) {
         mockup.pause(request.pause);
       }

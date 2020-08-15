@@ -25,7 +25,7 @@ const getCurTabState = (callback) => {
       pauseBtn.style.display = 'none';
       return;
     }
-    const url = tabs[0].url;
+    const url = tabs[0].url || '';
     for (const key in bg._pause) {
       if (bg._pause.hasOwnProperty(key)) {
         if (url.includes(key)) {

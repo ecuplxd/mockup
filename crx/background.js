@@ -36,7 +36,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     default:
       break;
   }
-  console.log(request);
   _updateLocalStorage();
   sendResponse();
 });
