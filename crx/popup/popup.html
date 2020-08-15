@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body {
-        color: #252525;
-        font-size: 14px;
         margin: 0;
+        font-size: 14px;
+        color: #252525;
       }
 
       .content {
@@ -35,39 +35,39 @@
       }
 
       h5 {
-        margin: 0;
-        margin-bottom: 15px;
+        font-size: 16px;
+        margin: 0 0 10px 0;
       }
 
       ul,
       li {
+        margin: 0 0 10px 7px;
         padding: 0;
-        margin: 0;
-        list-style: none;
+        word-break: break-all;
       }
 
       .actions button {
-        margin-left: 10px;
+        margin: 0 0 0 10px;
         cursor: pointer;
       }
 
       footer {
-        background-color: #f0f0f0;
-        color: #636363;
-        font-family: 'Roboto', sans-serif;
-        font-size: 11px;
+        width: 400px;
         margin-top: 9px;
         padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 11px;
         text-align: center;
-        width: 400px;
+        color: #636363;
+        background-color: #f0f0f0;
       }
 
       footer a {
-        color: #4285f4;
+        position: relative;
         display: inline;
         font-size: 11px;
+        color: #4285f4;
         text-decoration: none;
-        position: relative;
       }
 
       a#donate {
@@ -81,28 +81,63 @@
     <div class="content">
       <div class="left">
         <div class="tips">
-          <h5>使用提示：按下 ctrl 可手动选中当前鼠标 hover 的元素</h5>
+          <h5 class="i18n-message" data-message="tips">使用提示：</h5>
+          <ul>
+            <li>
+              <span class="i18n-message" data-message="press">按下</span>
+              <strong>Ctrl</strong>
+              <span class="i18n-message" data-message="selectHoverElTip"
+                >可手动选中当前鼠标经过的元素。</span
+              >
+            </li>
+            <li>
+              <span class="i18n-message" data-message="press">按下</span>
+              <strong>P</strong>
+              <span class="i18n-message" data-message="pauseTip"
+                >键可启用/暂停插件功能。</span
+              >
+            </li>
+          </ul>
         </div>
         <div class="actions">
-          插件当前<span id="status">运行</span>中
-          <button id="pause-btn">暂停</button>
+          <span>
+            <span class="i18n-message" data-message="current">插件当前</span>
+            <strong id="status"></strong>
+          </span>
+          <button id="pause-btn"></button>
         </div>
       </div>
       <div class="right" id="qrcode">
         <img
+          id="qrcodeImage"
           width="80"
           src="./../imgs/alipay.jpg"
           alt="扫描支付宝，向我捐赠哈哈哈"
+          class="i18n-message"
+          data-message="donateImgAlt"
         />
-        <p style="margin: 0;">支付宝</p>
+        <p style="margin: 0;" class="i18n-message" data-message="alipay">
+          支付宝
+        </p>
       </div>
     </div>
     <footer>
-      © <span id="year">2018</span> <span id="author">ecuplxd</span> -
-      <a title="12050901053@ecupl.edu.cn" href="mailto:12050901053@ecupl.edu.cn"
+      <span
+        >© <span id="year">2018</span> <span id="author">ecuplxd</span> -</span
+      >
+      <a
+        title="https://github.com/ecuplxd/mockup/issues"
+        href="https://github.com/ecuplxd/mockup/issues"
         >bug、issue、feature</a
       >
-      <a href="#" title="觉得很棒，捐赠小兑~" id="donate">捐赠</a>
+      <a
+        href="#"
+        title="觉得很棒，捐赠小兑~"
+        id="donate"
+        class="i18n-message"
+        data-message="donate"
+        >捐赠</a
+      >
     </footer>
     <script src="./popup.js"></script>
   </body>

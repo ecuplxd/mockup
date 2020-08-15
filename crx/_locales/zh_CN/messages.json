@@ -1,0 +1,66 @@
+{
+  "alipay": {
+    "message": "支付宝",
+    "description": ""
+  },
+  "tips": {
+    "message": "使用提示：",
+    "description": ""
+  },
+  "press": {
+    "message": "按下",
+    "description": ""
+  },
+  "ctrl": {
+    "message": "Ctrl",
+    "description": ""
+  },
+  "selectHoverElTip": {
+    "message": " 可手动选中当前鼠标经过的元素。",
+    "description": ""
+  },
+  "p": {
+    "message": "P",
+    "description": ""
+  },
+  "pauseTip": {
+    "message": " 键可启用/暂停插件功能。",
+    "description": ""
+  },
+  "current": {
+    "message": "插件当前",
+    "description": ""
+  },
+  "running": {
+    "message": "运行中",
+    "description": ""
+  },
+  "pausing": {
+    "message": "暂停中",
+    "description": ""
+  },
+  "pause": {
+    "message": "暂停",
+    "description": ""
+  },
+  "run": {
+    "message": "运行",
+    "description": ""
+  },
+  "unavailable": {
+    "message": "不可用",
+    "description": ""
+  },
+  "donateTip": {
+    "message": "觉得很棒，捐赠小兑~",
+    "description": ""
+  },
+  "donateImgAlt": {
+    "message": "扫描支付宝二维码，向我捐赠哈哈哈",
+    "description": ""
+  },
+  "donate": {
+    "message": "捐赠",
+    "description": ""
+  }
+}

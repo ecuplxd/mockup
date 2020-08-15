@@ -87,7 +87,7 @@ class Mockup {
   }
 
   handlerKeyUp(e: KeyboardEvent) {
-    if (!this.hoverMatchElRect) {
+    if (!this.hoverMatchElRect || !e.key) {
       return;
     }
     const key = e.key.toUpperCase();

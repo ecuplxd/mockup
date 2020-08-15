@@ -2,7 +2,7 @@
   "name": "MockupHtml",
   "author": "12050901053@ecupl.edu.cn",
   "manifest_version": 2,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Mockup html layout",
   "icons": {
     "16": "./imgs/me16.png",
@@ -16,7 +16,7 @@
     "default_title": "MockupHtml",
     "default_popup": "./popup/popup.html"
   },
-  "permissions": ["contextMenus", "tabs"],
+  "permissions": ["tabs"],
   "content_scripts": [
     {
       "js": ["./index.js"],
@@ -24,5 +24,6 @@
       "match_about_blank": true,
       "run_at": "document_end"
     }
-  ]
+  ],
+  "default_locale": "zh_CN"
 }
