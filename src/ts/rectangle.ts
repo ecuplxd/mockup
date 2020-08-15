@@ -32,13 +32,11 @@ export class Rectangle {
 
   setPos(pos: IPos) {
     this.pos = pos || this.pos;
-    // 上左 上右 下左 下右的四个点
+    // left top/left right/bottom left/bottom right
     this.ptl = { x: this.pos.left, y: this.pos.top };
-    // this.ptr = { x: this.pos.right - 1, y: this.pos.top };
     this.ptr = { x: this.pos.right, y: this.pos.top };
     this.pbl = { x: this.pos.left, y: this.pos.bottom };
     this.pbr = { x: this.pos.right, y: this.pos.bottom };
-    // this.pbr = { x: this.pos.right - 1, y: this.pos.bottom - 1 };
     return this;
   }
 
@@ -51,7 +49,7 @@ export class Rectangle {
     return this;
   }
 
-  /* TODO: 是否有更好的计算方法 */
+  /* TODO: a better cal algorithm */
   diff(react: Rectangle) {
     const trickPoints: Array<IPoint[]> = [];
     const vx = this.ptl.x + this.ht.width / 2;

@@ -42,10 +42,10 @@ div.${PREFIX} {
   padding: 0;
   list-style: none;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
 }
 
-/* 线 */
+/* line */
 div.${PREFIX}.${LINE} {
   border: 0.5px solid #419bf9;
   z-index: 1000000;
@@ -56,7 +56,7 @@ div.${LINE}.${SELETED} {
   z-index: 1000000;
 }
 
-/* 辅助线虚线 */
+/* guide line */
 div.${LINE}.${GUIDE} {
   border: 0.5px dashed #419bf9;
   z-index: 100000;
@@ -66,18 +66,18 @@ div.${LINE}.${MATCH} {
   z-index: 100000;
 }
 
-/* 四个小圆点 */
+/* 4 dot */
 div.${LINE}.${POINT} {
   position: absolute;
-  width: 5px !important;
-  height: 5px !important;
+  width: 4px !important;
+  height: 4px !important;
   background: #EE6723;
   border: 1px solid #EE6723;
-  border-radius: 50%;
   z-index: 100000;
+  display: none;
 }
 
-/* 标签 */
+/* width/height label */
 div.${LINE}.${SELETED}::before,
 div.${LINE}.${TRICK}::before {
   position: absolute;

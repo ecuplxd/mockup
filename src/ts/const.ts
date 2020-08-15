@@ -5,13 +5,15 @@ const ZUIGUAI = `__${FUCI}guai__`;
 const SUFFIX = `__${Math.random().toString(36).substr(2)}__`;
 
 export const PREFIX = '__ecuplxd__';
-export const CTRLKEYCODE = 17;
+export const CTRL_KEYCODE = 'CONTROL';
+export const P_KEYCODE = 'P';
 
 export const PAUSED = 'paused' + SUFFIX;
 
 export const MOUSEMOVE = 'mousemove';
 export const KEYUP = 'keyup';
 export const RESIZE = 'resize';
+export const SCROLL = 'scroll';
 export const CLICK = 'click';
 
 export const LINE = ZUIMENG + 'line' + SUFFIX;

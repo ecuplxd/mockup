@@ -8,14 +8,14 @@ export class SeletedRectangle extends Rectangle {
   tr: Line;
   bl: Line;
   br: Line;
-  // TODO: 使用 Point 类 实现
+  // TODO: use Point class impl
   ptl_point: IPoint;
   ptr_point: IPoint;
   pbl_point: IPoint;
   pbr_point: IPoint;
   constructor() {
     super(null, SELETED);
-    // 额外初始化四个点的坐标
+    // Note: need to init extra 4 poin coordinate
     this.tl = new Line(null, null, `${POINT} ${IDirection.TOPLEFT}`);
     this.tr = new Line(null, null, `${POINT} ${IDirection.TOPRIGHT}`);
     this.bl = new Line(null, null, `${POINT} ${IDirection.BOTTOMLEFT}`);
@@ -24,7 +24,7 @@ export class SeletedRectangle extends Rectangle {
 
   setPos(pos: IPos) {
     super.setPos(pos);
-    // 上左 上右 下左 下右的四个点
+    // left top/left right/bottom left/bottom right
     const delta = 4.5;
     this.ptl_point = { x: this.ptl.x, y: this.ptl.y };
     this.ptr_point = { x: this.ptr.x - delta, y: this.ptr.y };

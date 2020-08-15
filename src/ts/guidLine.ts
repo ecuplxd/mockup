@@ -1,6 +1,6 @@
 import { Rectangle } from './rectangle';
 import { IPos } from './model';
-import { getScroll, setStyle } from './utils';
+import { setStyle } from './utils';
 import { GUIDE, WIDTH } from './const';
 
 export class GuideLine extends Rectangle {
@@ -15,34 +15,36 @@ export class GuideLine extends Rectangle {
   }
 
   setHPos(pos: IPos) {
-    const right = getScroll(WIDTH) - 1;
     this.pos = pos || this.pos;
     this.ptl = { x: 0, y: this.pos.top };
-    this.ptr = { x: right, y: this.pos.top };
+    this.ptr = { x: 0, y: this.pos.top };
     this.pbl = { x: 0, y: this.pos.bottom };
-    this.pbr = { x: right, y: this.pos.bottom };
+    this.pbr = { x: 0, y: this.pos.bottom };
     this.ht.update(this.ptl, this.ptr);
     this.hb.update(this.pbl, this.pbr);
     setStyle(this.ht.el, {
       right: 0,
-      width: 'initial',
     });
     setStyle(this.hb.el, {
       right: 0,
-      width: 'initial',
     });
     return this;
   }
 
   setVPos(pos: IPos) {
     this.pos = pos || this.pos;
-    const bottom = getScroll();
     this.ptl = { x: this.pos.left, y: 0 };
-    this.pbl = { x: this.pos.left, y: bottom };
+    this.pbl = { x: this.pos.left, y: 0 };
     this.ptr = { x: this.pos.right, y: 0 };
-    this.pbr = { x: this.pos.right, y: bottom };
+    this.pbr = { x: this.pos.right, y: 0 };
     this.vl.update(this.ptl, this.pbl);
     this.vr.update(this.ptr, this.pbr);
+    setStyle(this.vl.el, {
+      bottom: 0,
+    });
+    setStyle(this.vr.el, {
+      bottom: 0,
+    });
     return this;
   }
 

@@ -1,5 +1,5 @@
 import { IObject } from './model';
-import { HEIGHT, DIV } from './const';
+import { DIV } from './const';
 
 export const getType = (typeName: string) => {
   const toString = Object.prototype.toString;
@@ -88,29 +88,6 @@ export const removeEl = (selector: string) => {
   }
 };
 
-// Javascript 权威指南
-export const getScrollOffsets = (w?: any) => {
-  w = w || window;
-  if (w.pageXOffset !== null) {
-    return {
-      x: w.pageXOffset,
-      y: w.pageYOffset,
-    };
-  }
-  const d = w.document;
-  if (document.compatMode === 'CSS1Compat') {
-    return {
-      x: d.documentElement.scrollLeft,
-      y: d.documentElement.scrollTop,
-    };
-  }
-
-  return {
-    x: d.body.scrollLeft,
-    y: d.body.scrollTop,
-  };
-};
-
 export const getElDocumentPos = (el: HTMLElement) => {
   if (!el) {
     return {
@@ -123,29 +100,10 @@ export const getElDocumentPos = (el: HTMLElement) => {
   const box = el.getBoundingClientRect();
   const w = box.width || box.right - box.left;
   const h = box.height || box.bottom - box.top;
-  const offsets = getScrollOffsets();
   return {
-    left: box.left + offsets.x,
-    top: box.top + offsets.y,
-    // border 占了 1px
-    right: box.left + offsets.x + w - 1,
-    bottom: box.top + offsets.y + h - 1,
+    left: box.left,
+    top: box.top,
+    right: box.left + w,
+    bottom: box.top + h,
   };
-};
-
-/* 获取文档宽高 */
-export const getScroll = (type: string = HEIGHT) => {
-  let scroll = 0,
-    bodyScroll = 0,
-    documentScroll = 0;
-  const { body, documentElement } = document as any;
-  const callKey = `scroll${type}`;
-  if (body) {
-    bodyScroll = body[callKey];
-  }
-  if (documentElement) {
-    documentScroll = documentElement[callKey];
-  }
-  scroll = bodyScroll - documentScroll > 0 ? bodyScroll : documentScroll;
-  return scroll;
 };

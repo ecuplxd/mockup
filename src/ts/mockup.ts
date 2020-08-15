@@ -5,42 +5,51 @@ import { Rectangle } from './rectangle';
 import { Trick } from './trick';
 import GuideLine from './guidLine';
 import {
-  CTRLKEYCODE,
+  CTRL_KEYCODE,
   MOUSEMOVE,
   CLICK,
   KEYUP,
   RESIZE,
+  SCROLL,
   MATCH,
   HASDIFF,
   HASSELETED,
   PREFIX,
   STYLE,
+  P_KEYCODE,
+  PAUSED,
 } from './const';
 import { styles } from './style';
 
 class Mockup {
   _hasSeleted = false;
   _pause = false;
-  curSeletedEl = new SeletedRectangle();
-  // TODO:参考线可以考虑移动到 hoverMatchEl 实现
-  hoverMatchEl = new Rectangle(null, MATCH);
+  curSeletedElRect = new SeletedRectangle();
+  // TODO: guide line can be impl in hoverMatchEl
+  hoverMatchElRect = new Rectangle(null, MATCH);
   guidLine = new GuideLine();
   trick = new Trick();
   body = document.body;
   oldCls = `${PREFIX} ` + this.body.className.trim();
 
-  constructor(pause: boolean) {
+  constructor(pause: boolean, private onPause?: Function) {
     this.handlerEvent = this.handlerEvent.bind(this);
     this._pause = pause;
     this.init();
   }
 
   diff() {
-    // 获取差
-    if (this._hasSeleted && this.curSeletedEl && this.curSeletedEl.pos) {
-      if (this.curSeletedEl.ref !== this.hoverMatchEl.ref) {
+    // get delta
+    if (
+      this._hasSeleted &&
+      this.curSeletedElRect &&
+      this.curSeletedElRect.pos
+    ) {
+      if (this.curSeletedElRect.ref !== this.hoverMatchElRect.ref) {
         this.body.className = `${this.oldCls} ${HASDIFF}`.trim();
-        const points: IPoint[][] = this.curSeletedEl.diff(this.hoverMatchEl);
+        const points: IPoint[][] = this.curSeletedElRect.diff(
+          this.hoverMatchElRect
+        );
         this.trick.update(points);
       }
     }
@@ -63,33 +72,38 @@ class Mockup {
 
   seletedEl(el: HTMLElement) {
     this._hasSeleted = true;
-    this.updatePos(el, this.curSeletedEl);
+    this.updatePos(el, this.curSeletedElRect);
     this.body.className = `${this.oldCls} ${HASSELETED}`.trim();
     this.resetDiff();
   }
 
   updateAllPos() {
-    // const pos = cloneObj(getElDocumentPos(this.curSeletedEl.ref));
-    const { ref } = this.curSeletedEl;
-    this.updatePos(ref, this.hoverMatchEl, false);
-    this.updatePos(ref, this.curSeletedEl, false);
-    this.updatePos(ref, this.guidLine, false);
+    const selectedEl = this.curSeletedElRect.ref;
+    const hoverEl = this.hoverMatchElRect.ref;
+    this.updatePos(selectedEl, this.curSeletedElRect, false);
+    this.updatePos(hoverEl, this.hoverMatchElRect, false);
+    this.updatePos(hoverEl, this.guidLine, false);
+    this.diff();
   }
 
   handlerKeyUp(e: KeyboardEvent) {
-    const { keyCode } = e;
-    if (!this.hoverMatchEl || keyCode !== CTRLKEYCODE) {
+    if (!this.hoverMatchElRect) {
       return;
     }
-    this.seletedEl(this.hoverMatchEl.ref);
+    const key = e.key.toUpperCase();
+    if (key === CTRL_KEYCODE && !this._pause) {
+      this.seletedEl(this.hoverMatchElRect.ref);
+    } else if (key === P_KEYCODE) {
+      this.pause(!this._pause);
+    }
   }
 
   handlerMousemove(e: MouseEvent) {
     const target = e.target as HTMLElement;
     const { className } = target;
-    // 有可能是 SVG 元素
+    // may be a SVG el
     if (className.indexOf && className.indexOf(PREFIX) < 0) {
-      this.updatePos(target, this.hoverMatchEl);
+      this.updatePos(target, this.hoverMatchElRect);
       this.updatePos(target, this.guidLine, false);
       this.diff();
     }
@@ -100,9 +114,6 @@ class Mockup {
   }
 
   handlerEvent(e: MouseEvent | KeyboardEvent | UIEvent) {
-    if (this._pause) {
-      return;
-    }
     const { type, target } = e;
     const { nodeName } = target as HTMLElement;
     if (type !== KEYUP && target && nodeName === 'BODY') {
@@ -110,16 +121,17 @@ class Mockup {
     }
     switch (type) {
       case CLICK:
-        this.handlerClick(e as MouseEvent);
+        !this._pause && this.handlerClick(e as MouseEvent);
         break;
       case MOUSEMOVE:
-        this.handlerMousemove(e as MouseEvent);
+        !this._pause && this.handlerMousemove(e as MouseEvent);
         break;
       case KEYUP:
         this.handlerKeyUp(e as KeyboardEvent);
         break;
       case RESIZE:
-        this.updateAllPos();
+      case SCROLL:
+        !this._pause && this.updateAllPos();
         break;
       default:
         break;
@@ -139,10 +151,19 @@ class Mockup {
     this.body.addEventListener(CLICK, this.handlerEvent, false);
     this.body.addEventListener(KEYUP, this.handlerEvent, false);
     window.addEventListener(RESIZE, this.handlerEvent, false);
+    window.addEventListener(SCROLL, this.handlerEvent, {
+      capture: false,
+      passive: true,
+    });
   }
 
-  pause(flag: boolean) {
-    this._pause = flag;
+  pause(pause: boolean) {
+    this._pause = pause;
+    if (!pause) {
+      this.updateAllPos();
+    }
+    this.body.className = `${this.oldCls} ${pause ? PAUSED : ''}`;
+    this.onPause && this.onPause.call(null, this._pause);
   }
 }
 

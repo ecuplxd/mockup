@@ -1,23 +1,39 @@
 import Mockup from './mockup';
-import { PAUSED } from './const';
 
 declare var chrome: any;
 declare var NODE_ENV: string;
 
-const mockup = new Mockup(NODE_ENV !== 'development');
-// 必须要有参数，否则 background 收不到
-if (chrome && chrome.runtime) {
+const chrome_exits = chrome && chrome.runtime;
+
+const mockup = new Mockup(NODE_ENV !== 'development', (pause: boolean) => {
+  if (chrome_exits) {
+    chrome.runtime.sendMessage({
+      href: location.origin,
+      pause: pause,
+      from: 'content-script',
+      message: 'udpate_pause',
+    });
+  }
+});
+
+// must have args, otherwise background can't receive message
+if (chrome_exits) {
   const { sendMessage, onMessage } = chrome.runtime;
   try {
-    sendMessage({ value: 'init', href: location.origin });
+    sendMessage({
+      href: location.origin,
+      from: 'content-script',
+      message: 'init',
+    });
   } catch (error) {}
 
-  onMessage &&
+  if (onMessage) {
     onMessage.addListener((request: any, sender: any, sendResponse: any) => {
-      if (!request) {
-        return;
+      console.log(request);
+      if (request) {
+        mockup.pause(request.pause);
       }
-      mockup.pause(request.value);
-      mockup.body.className = `${mockup.oldCls} ${request.value ? PAUSED : ''}`;
+      sendResponse();
     });
+  }
 }

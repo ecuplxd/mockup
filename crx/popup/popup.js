@@ -6,6 +6,9 @@ const qrcode = document.getElementById('qrcode');
 
 const getCurTabState = (callback) => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (!tabs[0]) {
+      return;
+    }
     const url = tabs[0].url;
     for (const key in bg._pause) {
       if (bg._pause.hasOwnProperty(key)) {
@@ -31,7 +34,11 @@ const setStateText = (_pause) => {
 getCurTabState((url) => {
   const pause = bg._pause[url];
   setStateText(pause);
-  bg._sendMessageToContentScript({ value: pause });
+  bg._sendMessageToContentScript({
+    pause: pause,
+    from: 'popup',
+    message: 'popup show',
+  });
 });
 
 pauseBtn.onclick = () => {
@@ -39,7 +46,11 @@ pauseBtn.onclick = () => {
     const pause = (bg._pause[url] = !bg._pause[url]);
     setStateText(pause);
     bg._updateLocalStorage();
-    bg._sendMessageToContentScript({ value: pause });
+    bg._sendMessageToContentScript({
+      pause: pause,
+      from: 'popup',
+      message: 'btn clikc',
+    });
   });
 };
 

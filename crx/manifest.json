@@ -2,7 +2,7 @@
   "name": "MockupHtml",
   "author": "12050901053@ecupl.edu.cn",
   "manifest_version": 2,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Mockup html layout",
   "icons": {
     "16": "./imgs/me16.png",
