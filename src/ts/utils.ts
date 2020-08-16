@@ -54,11 +54,15 @@ const iteratorObj = (object: IObject, cb: Function = pass, init?: IObject) => {
   return init;
 };
 
+export const toFixed = (num: number, len = 2) => {
+  return parseFloat(num.toFixed(len));
+};
+
 export const toDataAttr = (obj: IObject) => {
   return iteratorObj(
     obj,
     (key: string, value: any) => {
-      let _value = isNumber(value) ? `${value}px` : value;
+      let _value = isNumber(value) ? `${toFixed(value)}px` : value;
       return {
         key: `data-${key}`,
         value: `${_value}`,

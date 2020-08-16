@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "author": "12050901053@ecupl.edu.cn",
   "manifest_version": 2,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "./imgs/logo16.png",

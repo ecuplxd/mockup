@@ -12,6 +12,8 @@ import {
   MATCH,
   IDirection,
   PAUSED,
+  HEIGHT_NOT_ENOUGH,
+  WIDTH_NOT_ENOUGH,
 } from './const';
 
 export const styles = `
@@ -25,10 +27,7 @@ body.${HASDIFF} div.${LINE}.${TRICK}::before {
 
 body.${HASSELETED} div.${LINE}.${VERTICAL}.${SELETED}.${IDirection.RIGHT}::before {
   content: attr(data-height);
-  left: auto;
-  right: 0;
-  top: 50%;
-  transform: translateX(calc(100% - 50px)) translateY(-50%);
+  top: calc(50% - 8.5px);
 }
 
 body.${HASSELETED} div.${LINE}.${SELETED}.${IDirection.TOP}::before,
@@ -83,21 +82,29 @@ div.${LINE}.${TRICK}::before {
   position: absolute;
   display: none;
   left: 50%;
-  top: -23px;
+  top: -20px;
   transform: translateX(-50%);
   content: attr(data-width);
   font-size: 12px;
   color: #FFF;
-  padding: 4px;
+  padding: 1px 2px;
   background: #EE6723;
   border-radius: 2px;
+}
+
+div.${LINE}.${SELETED}.${HEIGHT_NOT_ENOUGH}::before {
+  top: 4px;
+}
+
+div.${LINE}.${SELETED}.${WIDTH_NOT_ENOUGH}::before {
+  left: -25px;
 }
 
 div.${LINE}.${TRICK}.${VERTICAL}.${IDirection.TOP}::before,
 div.${LINE}.${TRICK}.${VERTICAL}.${IDirection.BOTTOM}::before {
   content: attr(data-height);
-  top: 50%;
-  left: 23px;
+  top: calc(50% - 8.5px);
+  left: 0;
 }
 
 div.${LINE}.${TRICK}.${IDirection.LEFT}::before,

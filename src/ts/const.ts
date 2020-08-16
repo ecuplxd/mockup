@@ -22,6 +22,8 @@ export const POINT = ZUIMENG + 'point' + SUFFIX;
 
 export const VERTICAL = ZUIKEAI + 'vertical' + SUFFIX;
 export const HORIZONATAL = ZUIKEAI + 'horizonatal' + SUFFIX;
+export const HEIGHT_NOT_ENOUGH = ZUIKEAI + 'height-not-enough' + SUFFIX;
+export const WIDTH_NOT_ENOUGH = ZUIKEAI + 'width-not-enough' + SUFFIX;
 
 export const HASDIFF = ZUIGUAI + 'has-diff' + SUFFIX;
 export const HASSELETED = ZUIGUAI + 'has-seleted' + SUFFIX;

@@ -8,6 +8,8 @@ import {
   PREFIX,
   IDirection,
   GUIDE,
+  HEIGHT_NOT_ENOUGH,
+  WIDTH_NOT_ENOUGH,
 } from './const';
 
 // TODO: Add a Point class
@@ -74,7 +76,11 @@ export class Line {
     }
 
     const direction = this.direction ? `${this.direction}` : '';
-    dataAttr.class = `${PREFIX} ${LINE} ${direction} ${this.cls}`;
+    const heightNotEnough = this.top < 20 ? HEIGHT_NOT_ENOUGH : '';
+    const widthNotEnough =
+      window.innerWidth - this.left < 35 ? WIDTH_NOT_ENOUGH : '';
+
+    dataAttr.class = `${PREFIX} ${LINE} ${direction} ${this.cls} ${heightNotEnough} ${widthNotEnough}`;
     this.el = setStyle(this.el, styleObject);
     this.el = setAttribute(this.el, dataAttr);
     return this;

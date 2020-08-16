@@ -71,6 +71,9 @@ class Mockup {
   }
 
   seletedEl(el: HTMLElement) {
+    if (el === this.curSeletedElRect.ref) {
+      return;
+    }
     this._hasSeleted = true;
     this.updatePos(el, this.curSeletedElRect);
     this.body.className = `${this.oldCls} ${HASSELETED}`.trim();
@@ -100,6 +103,11 @@ class Mockup {
 
   handlerMousemove(e: MouseEvent) {
     const target = e.target as HTMLElement;
+
+    if (target === this.hoverMatchElRect.ref) {
+      return;
+    }
+
     const { className } = target;
     // may be a SVG el
     if (className.indexOf && className.indexOf(PREFIX) < 0) {
@@ -138,7 +146,6 @@ class Mockup {
     }
   }
 
-  // TODO
   injectStyle() {
     const styleEl = createEl(STYLE);
     styleEl.innerHTML = styles;
