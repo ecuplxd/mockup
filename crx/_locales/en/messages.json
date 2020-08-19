@@ -19,13 +19,16 @@
     "message": "Press",
     "description": ""
   },
+  "fastPress": {
+    "message": "Fast Press",
+    "description": ""
+  },
   "ctrl": {
     "message": "Ctrl",
     "description": ""
   },
   "selectHoverElTip": {
     "message": " can select current hover elment by hand.",
-
     "description": ""
   },
   "p": {
@@ -33,31 +36,7 @@
     "description": ""
   },
   "pauseTip": {
-    "message": " can toggle run/pause.",
-    "description": ""
-  },
-  "current": {
-    "message": "Current State:",
-    "description": ""
-  },
-  "running": {
-    "message": "Running",
-    "description": ""
-  },
-  "pausing": {
-    "message": "Pausing",
-    "description": ""
-  },
-  "pause": {
-    "message": "Pause",
-    "description": ""
-  },
-  "run": {
-    "message": "Run",
-    "description": ""
-  },
-  "unavailable": {
-    "message": "Unavailable",
+    "message": " key twice quickly to switch enabled/disabled (disabled by default) function.",
     "description": ""
   },
   "donateTip": {

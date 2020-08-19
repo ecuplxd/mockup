@@ -23,7 +23,6 @@ import { styles } from './style';
 
 class Mockup {
   _hasSeleted = false;
-  _pause = false;
   curSeletedElRect = new SeletedRectangle();
   // TODO: guide line can be impl in hoverMatchEl
   hoverMatchElRect = new Rectangle(null, MATCH);
@@ -32,9 +31,14 @@ class Mockup {
   body = document.body;
   oldCls = `${PREFIX} ` + this.body.className.trim();
 
-  constructor(pause: boolean, private onPause?: Function) {
+  triggle = {
+    firstPressP: 0,
+    secondPressP: 0,
+    time: 300,
+  };
+
+  constructor(private pause: boolean = false) {
     this.handlerEvent = this.handlerEvent.bind(this);
-    this._pause = pause;
     this.init();
   }
 
@@ -94,11 +98,34 @@ class Mockup {
       return;
     }
     const key = e.key.toUpperCase();
-    if (key === CTRL_KEYCODE && !this._pause) {
+    if (key === CTRL_KEYCODE && !this.pause) {
+      this.resetTriggle();
       this.seletedEl(this.hoverMatchElRect.ref);
     } else if (key === P_KEYCODE) {
-      this.pause(!this._pause);
+      this.checkShouldTriggerPause();
+    } else {
+      this.resetTriggle();
     }
+  }
+
+  checkShouldTriggerPause() {
+    if (!this.triggle.firstPressP) {
+      this.triggle.firstPressP = +new Date();
+    } else {
+      this.triggle.secondPressP = +new Date();
+    }
+    if (this.triggle.firstPressP && this.triggle.secondPressP) {
+      const delta = this.triggle.secondPressP - this.triggle.firstPressP;
+      if (delta <= this.triggle.time) {
+        this.setPause(!this.pause);
+      }
+      this.resetTriggle();
+    }
+  }
+
+  resetTriggle() {
+    this.triggle.firstPressP = 0;
+    this.triggle.secondPressP = 0;
   }
 
   handlerMousemove(e: MouseEvent) {
@@ -129,17 +156,17 @@ class Mockup {
     }
     switch (type) {
       case CLICK:
-        !this._pause && this.handlerClick(e as MouseEvent);
+        !this.pause && this.handlerClick(e as MouseEvent);
         break;
       case MOUSEMOVE:
-        !this._pause && this.handlerMousemove(e as MouseEvent);
+        !this.pause && this.handlerMousemove(e as MouseEvent);
         break;
       case KEYUP:
         this.handlerKeyUp(e as KeyboardEvent);
         break;
       case RESIZE:
       case SCROLL:
-        !this._pause && this.updateAllPos();
+        !this.pause && this.updateAllPos();
         break;
       default:
         break;
@@ -164,13 +191,12 @@ class Mockup {
     });
   }
 
-  pause(pause: boolean) {
-    this._pause = pause;
+  setPause(pause: boolean) {
+    this.pause = pause;
     if (!pause) {
       this.updateAllPos();
     }
     this.body.className = `${this.oldCls} ${pause ? PAUSED : ''}`;
-    this.onPause && this.onPause.call(null, this._pause);
   }
 }
 

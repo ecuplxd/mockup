@@ -19,6 +19,10 @@
     "message": "按下",
     "description": ""
   },
+  "fastPress": {
+    "message": "快速按下",
+    "description": ""
+  },
   "ctrl": {
     "message": "Ctrl",
     "description": ""
@@ -32,31 +36,7 @@
     "description": ""
   },
   "pauseTip": {
-    "message": " 键可启用/暂停插件功能。",
-    "description": ""
-  },
-  "current": {
-    "message": "插件当前",
-    "description": ""
-  },
-  "running": {
-    "message": "运行中",
-    "description": ""
-  },
-  "pausing": {
-    "message": "暂停中",
-    "description": ""
-  },
-  "pause": {
-    "message": "暂停",
-    "description": ""
-  },
-  "run": {
-    "message": "运行",
-    "description": ""
-  },
-  "unavailable": {
-    "message": "不可用",
+    "message": " 键两次可切换启用/禁用（默认）功能。",
     "description": ""
   },
   "donateTip": {
