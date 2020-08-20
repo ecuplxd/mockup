@@ -128,20 +128,19 @@ class Mockup {
     this.triggle.secondPressP = 0;
   }
 
+  targetIsSelf(target: HTMLElement) {
+    return !!+target.dataset[PREFIX];
+  }
+
   handlerMousemove(e: MouseEvent) {
     const target = e.target as HTMLElement;
-
-    if (target === this.hoverMatchElRect.ref) {
+    if (target === this.hoverMatchElRect.ref || this.targetIsSelf(target)) {
       return;
     }
 
-    const { className } = target;
-    // may be a SVG el
-    if (className.indexOf && className.indexOf(PREFIX) < 0) {
-      this.updatePos(target, this.hoverMatchElRect);
-      this.updatePos(target, this.guidLine, false);
-      this.diff();
-    }
+    this.updatePos(target, this.hoverMatchElRect);
+    this.updatePos(target, this.guidLine, false);
+    this.diff();
   }
 
   handlerClick(e: MouseEvent) {

@@ -37,7 +37,7 @@ export const HEIGHT = 'Height';
 export const DIV = 'div';
 export const STYLE = 'style';
 
-export const EMPTYSTRING = '';
+export const EMPTY_STRING = '';
 
 export const enum IDirection {
   TOP = 'd-t',
@@ -49,3 +49,5 @@ export const enum IDirection {
   BOTTOMLEFT = 'd-bl',
   BOTTOMRIGH = 'd-br',
 }
+
+export const DATA_PREFIX = 'data-' + PREFIX;

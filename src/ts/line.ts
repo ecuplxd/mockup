@@ -10,6 +10,7 @@ import {
   GUIDE,
   HEIGHT_NOT_ENOUGH,
   WIDTH_NOT_ENOUGH,
+  DATA_PREFIX,
 } from './const';
 
 // TODO: Add a Point class
@@ -30,7 +31,7 @@ export class Line {
     private point2: IPoint = { x: 9999999, y: 0 },
     private cls: string = ''
   ) {
-    this.el = createEl(DIV);
+    this.el = createEl(DIV, { [DATA_PREFIX]: '1' });
     this.rightDelta = this.cls.indexOf(IDirection.RIGHT) !== -1 ? -1 : 0;
     this.bottomDelta = this.cls.indexOf(IDirection.BOTTOM) !== -1 ? -1 : 0;
     this.isGuide = this.cls.indexOf(GUIDE) !== -1;
