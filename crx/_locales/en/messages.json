@@ -1,0 +1,54 @@
+{
+  "extName": {
+    "message": "Mockup HTML",
+    "description": ""
+  },
+  "extDescription": {
+    "message": "Enhance the element selection function of the debugging tool, which can mark element borders and sizes, and mark the spacing between selected elements.",
+    "description": ""
+  },
+  "alipay": {
+    "message": "Alipay",
+    "description": ""
+  },
+  "tips": {
+    "message": "Tips:",
+    "description": ""
+  },
+  "press": {
+    "message": "Press",
+    "description": ""
+  },
+  "fastPress": {
+    "message": "Fast Press",
+    "description": ""
+  },
+  "ctrl": {
+    "message": "Ctrl",
+    "description": ""
+  },
+  "selectHoverElTip": {
+    "message": " can select current hover elment by hand.",
+    "description": ""
+  },
+  "p": {
+    "message": "P",
+    "description": ""
+  },
+  "pauseTip": {
+    "message": " key twice quickly to switch enabled/disabled (disabled by default) function.",
+    "description": ""
+  },
+  "donateTip": {
+    "message": "Awasone! Donate to author~",
+    "description": ""
+  },
+  "donateImgAlt": {
+    "message": "Scan Alipay QRCode, Donate to author ha ha ha~",
+    "description": ""
+  },
+  "donate": {
+    "message": "Donate",
+    "description": ""
+  }
+}

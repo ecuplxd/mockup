@@ -1,0 +1,54 @@
+{
+  "extName": {
+    "message": "HTML 元素标记器",
+    "description": ""
+  },
+  "extDescription": {
+    "message": "增强调试工具的元素选择功能，能够标记元素边框和大小，标记选择的元素间间距。",
+    "description": ""
+  },
+  "alipay": {
+    "message": "支付宝",
+    "description": ""
+  },
+  "tips": {
+    "message": "使用提示：",
+    "description": ""
+  },
+  "press": {
+    "message": "按下",
+    "description": ""
+  },
+  "fastPress": {
+    "message": "快速按下",
+    "description": ""
+  },
+  "ctrl": {
+    "message": "Ctrl",
+    "description": ""
+  },
+  "selectHoverElTip": {
+    "message": " 可手动选中当前鼠标经过的元素。",
+    "description": ""
+  },
+  "p": {
+    "message": "P",
+    "description": ""
+  },
+  "pauseTip": {
+    "message": " 键两次可切换启用/禁用（默认）功能。",
+    "description": ""
+  },
+  "donateTip": {
+    "message": "觉得很棒，捐赠小兑~",
+    "description": ""
+  },
+  "donateImgAlt": {
+    "message": "扫描支付宝二维码，向我捐赠哈哈哈",
+    "description": ""
+  },
+  "donate": {
+    "message": "捐赠",
+    "description": ""
+  }
+}

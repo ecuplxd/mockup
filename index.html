@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      div.container,
+      div.full-width,
+      div.container > div {
+        border: 1px solid;
+        margin: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      div.container {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+      }
+
+      div.container > div {
+        background-color: white;
+        flex: 0 0 25%;
+      }
+
+      div.full-width {
+        margin: 10px 0;
+      }
+
+      svg {
+        margin: 20px;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="./src/css/style.css"> -->
+  </head>
+
+  <body>
+    <div class="full-width">
+      <input type="text" />
+    </div>
+    <div class="full-width">
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="container">
+      <svg
+        class="icon"
+        style="
+          width: 1em;
+          height: 1em;
+          vertical-align: middle;
+          fill: currentColor;
+          overflow: hidden;
+        "
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="516"
+      >
+        <path
+          d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333zM533.333333 307.2c-12.8-10.666667-32-10.666667-44.8 0l-181.333333 170.666667c-12.8 12.8-12.8 32-2.133333 44.8s32 12.8 44.8 2.133333l128-119.466667v277.333334c0 17.066667 14.933333 32 32 32s32-14.933333 32-32V405.333333l128 119.466667c6.4 6.4 14.933333 8.533333 21.333333 8.533333 8.533333 0 17.066667-4.266667 23.466667-10.666666 12.8-12.8 10.666667-34.133333-2.133334-44.8l-179.2-170.666667z"
+          p-id="517"
+        ></path>
+      </svg>
+      <svg
+        class="icon"
+        style="
+          width: 1em;
+          height: 1em;
+          vertical-align: middle;
+          fill: currentColor;
+          overflow: hidden;
+        "
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="494"
+      >
+        <path
+          d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333zM682.666667 480h-138.666667V341.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v138.666667H341.333333c-17.066667 0-32 14.933333-32 32s14.933333 32 32 32h138.666667V682.666667c0 17.066667 14.933333 32 32 32s32-14.933333 32-32v-138.666667H682.666667c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z"
+          p-id="495"
+        ></path>
+      </svg>
+      <button onclick="test()">sdfasdf</button>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div class="inner">2</div>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+    </div>
+    <div class="full-width">中间</div>
+    <div class="full-width">下面</div>
+    <div class="container">
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div class="inner">2</div>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+    </div>
+    <div class="full-width">中间</div>
+    <div class="full-width">下面</div>
+    <div class="container">
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">1</div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div>2</div>
+      </div>
+      <div class="test">
+        <div class="inner">2</div>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+      <div class="test">
+        <span>span</span>
+      </div>
+    </div>
+    <script src="./dist/index.js"></script>
+    <script>
+      function test() {
+        console.log(1111);
+      }
+    </script>
+  </body>
+</html>

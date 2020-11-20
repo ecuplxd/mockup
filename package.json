@@ -1,0 +1,29 @@
+{
+  "name": "mockup",
+  "version": "1.0.0",
+  "description": "mockup page",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "cross-env": "^5.2.1",
+    "css-loader": "^1.0.1",
+    "less": "^3.12.2",
+    "less-loader": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.22.1",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-serve": "^2.0.3"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --port 5000 --output-public-path dist",
+    "build": "cross-env NODE_ENV=production webpack --mode production --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack -w"
+  },
+  "author": "12050901053@ecupl.edu.cn",
+  "license": "GPL"
+}
