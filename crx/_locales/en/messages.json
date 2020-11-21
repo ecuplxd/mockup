@@ -50,5 +50,21 @@
   "donate": {
     "message": "Donate",
     "description": ""
+  },
+  "hoverColor": {
+    "message": "Hover",
+    "description": ""
+  },
+  "selectedColor": {
+    "message": "Selected",
+    "description": ""
+  },
+  "fontColor": {
+    "message": "Font",
+    "description": ""
+  },
+  "colorTip": {
+    "message": "After selecting the color, please click the pop-up blank to take effect.",
+    "description": ""
   }
 }

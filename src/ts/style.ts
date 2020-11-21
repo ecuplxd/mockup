@@ -14,9 +14,11 @@ import {
   PAUSED,
   HEIGHT_NOT_ENOUGH,
   WIDTH_NOT_ENOUGH,
+  ZINDEX,
 } from './const';
+import { Color } from './model';
 
-export const styles = `
+export const getStyles = (color: Color) => `
 body.${PREFIX}.${PAUSED} > div.${PREFIX} {
   display: none;
 }
@@ -25,7 +27,9 @@ body.${HASDIFF} div.${LINE}.${TRICK}::before {
   display: block;
 }
 
-body.${HASSELETED} div.${LINE}.${VERTICAL}.${SELETED}.${IDirection.RIGHT}::before {
+body.${HASSELETED} div.${LINE}.${VERTICAL}.${SELETED}.${
+  IDirection.RIGHT
+}::before {
   content: attr(data-height);
   top: calc(50% - 8.5px);
 }
@@ -46,23 +50,23 @@ div.${PREFIX} {
 
 /* line */
 div.${PREFIX}.${LINE} {
-  border: 0.5px solid #419bf9;
-  z-index: 1000000;
+  border: 0.5px solid ${color.hoverColor};
+  z-index: ${ZINDEX};
 }
 
 div.${LINE}.${SELETED} {
-  border-color: #EE6723;
-  z-index: 1000000;
+  border-color: ${color.selectedColor};
+  z-index: ${ZINDEX};
 }
 
 /* guide line */
 div.${LINE}.${GUIDE} {
-  border: 0.5px dashed #419bf9;
-  z-index: 100000;
+  border: 0.5px dashed ${color.hoverColor};
+  z-index: ${ZINDEX / 10};
 }
 
 div.${LINE}.${MATCH} {
-  z-index: 100000;
+  z-index: ${ZINDEX / 10};
 }
 
 /* 4 dot */
@@ -70,9 +74,9 @@ div.${LINE}.${POINT} {
   position: absolute;
   width: 4px !important;
   height: 4px !important;
-  background: #EE6723;
-  border: 1px solid #EE6723;
-  z-index: 100000;
+  background: ${color.selectedColor};
+  border: 1px solid ${color.selectedColor};
+  z-index: ${ZINDEX / 10};
   display: none;
 }
 
@@ -86,9 +90,9 @@ div.${LINE}.${TRICK}::before {
   transform: translateX(-50%);
   content: attr(data-width);
   font-size: 12px;
-  color: #FFF;
+  color: ${color.fontColor};
   padding: 1px 2px;
-  background: #EE6723;
+  background: ${color.selectedColor};
   border-radius: 2px;
 }
 

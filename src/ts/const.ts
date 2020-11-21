@@ -51,3 +51,8 @@ export const enum IDirection {
 }
 
 export const DATA_PREFIX = 'data-' + PREFIX;
+
+export const HOVER_COLOR = '#419BF9';
+export const SELECTED_COLOR = '#EE6723';
+export const FONT_COLOR = '#FFFFFF';
+export const ZINDEX = 1000000;

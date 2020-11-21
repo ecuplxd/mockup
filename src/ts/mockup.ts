@@ -1,5 +1,5 @@
 import { cloneObj, getElDocumentPos, createEl } from './utils';
-import { IPos, IPoint } from './model';
+import { IPos, IPoint, Color } from './model';
 import { SeletedRectangle } from './seletedRectangle';
 import { Rectangle } from './rectangle';
 import { Trick } from './trick';
@@ -18,8 +18,11 @@ import {
   STYLE,
   P_KEYCODE,
   PAUSED,
+  HOVER_COLOR,
+  SELECTED_COLOR,
+  FONT_COLOR,
 } from './const';
-import { styles } from './style';
+import { getStyles } from './style';
 
 class Mockup {
   _hasSeleted = false;
@@ -35,6 +38,12 @@ class Mockup {
     firstPressP: 0,
     secondPressP: 0,
     time: 300,
+  };
+
+  color: Color = {
+    hoverColor: HOVER_COLOR,
+    selectedColor: SELECTED_COLOR,
+    fontColor: FONT_COLOR,
   };
 
   constructor(private pause: boolean = false) {
@@ -181,10 +190,25 @@ class Mockup {
     }
   }
 
-  injectStyle() {
-    const styleEl = createEl(STYLE);
-    styleEl.innerHTML = styles;
-    document.head.appendChild(styleEl);
+  injectStyle(color?: Color) {
+    color = color || this.color;
+
+    const id = PREFIX + 'style';
+    const styleEl =
+      document.getElementById(id) ||
+      createEl(
+        STYLE,
+        {
+          id,
+        },
+        false
+      );
+
+    styleEl.innerHTML = getStyles(color);
+
+    if (!document.getElementById(id)) {
+      document.head.appendChild(styleEl);
+    }
   }
 
   init() {

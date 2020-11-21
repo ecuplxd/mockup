@@ -72,7 +72,11 @@ export const toDataAttr = (obj: IObject) => {
   );
 };
 
-export const createEl = (elName: string = DIV, attrs: any = {}) => {
+export const createEl = (
+  elName: string = DIV,
+  attrs: any = {},
+  append = true
+) => {
   const el = document.createElement(elName);
   const style = cloneObj(attrs.style);
   delete attrs.style;
@@ -80,7 +84,7 @@ export const createEl = (elName: string = DIV, attrs: any = {}) => {
   if (style) {
     setStyle(el, style as IObject);
   }
-  document.body.appendChild(el);
+  append && document.body.appendChild(el);
   return el;
 };
 

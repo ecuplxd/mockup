@@ -32,6 +32,7 @@
       .content .right img {
         border: 1px solid #999;
         border-radius: 5px;
+        margin-bottom: 8px;
       }
 
       h5 {
@@ -74,6 +75,38 @@
         position: absolute;
         right: 15px;
       }
+
+      .color-setting {
+        display: flex;
+        margin-bottom: 8px;
+      }
+
+      .color-tip {
+        color: red;
+        font-weight: 600;
+      }
+
+      .color-item {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+      }
+
+      .color-setting .color-item:last-child {
+        margin-right: 0;
+      }
+
+      .color-item span {
+        min-width: 25px;
+        margin-right: 4px;
+      }
+
+      #qrcode {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
     </style>
   </head>
 
@@ -82,26 +115,63 @@
       <div class="left">
         <div class="tips">
           <h5 class="i18n-message" data-message="tips">使用提示：</h5>
+
           <ul>
             <li>
               <span class="i18n-message" data-message="press">按下</span>
+
               <strong>Ctrl</strong>
-              <span class="i18n-message" data-message="selectHoverElTip"
-                >可手动选中当前鼠标经过的元素。</span
-              >
+
+              <span class="i18n-message" data-message="selectHoverElTip">
+                可手动选中当前鼠标经过的元素。
+              </span>
             </li>
+
             <li>
-              <span class="i18n-message" data-message="fastPress"
-                >快速按下</span
-              >
+              <span class="i18n-message" data-message="fastPress">
+                快速按下
+              </span>
+
               <strong>P</strong>
-              <span class="i18n-message" data-message="pauseTip"
-                >键两次可切换启用/禁用（默认）功能。</span
-              >
+
+              <span class="i18n-message" data-message="pauseTip">
+                键两次可切换启用/禁用（默认）功能。
+              </span>
             </li>
           </ul>
+
+          <div class="color-setting">
+            <div class="color-item">
+              <span class="label i18n-message" data-message="hoverColor">
+                经过
+              </span>
+
+              <input type="color" name="hoverColor" id="hoverColor" />
+            </div>
+
+            <div class="color-item">
+              <span class="label i18n-message" data-message="selectedColor">
+                选中
+              </span>
+
+              <input type="color" name="selectedColor" id="selectedColor" />
+            </div>
+
+            <div class="color-item" style="display: none">
+              <span class="label i18n-message" data-message="fontColor">
+                字体
+              </span>
+
+              <input type="color" name="fontColor" id="fontColor" />
+            </div>
+          </div>
+
+          <div class="color-tip i18n-message" data-message="colorTip">
+            选完颜色后，请单击该弹出任意空白以生效。
+          </div>
         </div>
       </div>
+
       <div class="right" id="qrcode">
         <img
           id="qrcodeImage"
@@ -111,30 +181,37 @@
           class="i18n-message"
           data-message="donateImgAlt"
         />
+
         <p style="margin: 0" class="i18n-message" data-message="alipay">
           支付宝
         </p>
       </div>
     </div>
+
     <footer>
-      <span
-        >© <span id="year">2018</span> <span id="author">ecuplxd</span> -</span
-      >
+      <span>
+        © <span id="year">2018</span> <span id="author">ecuplxd</span> -
+      </span>
+
       <a
         title="https://github.com/ecuplxd/mockup/issues"
         href="https://github.com/ecuplxd/mockup/issues"
         target="_blank"
-        >bug、issue、feature</a
       >
+        bug、issue、feature
+      </a>
+
       <a
         href="#"
         title="觉得很棒，捐赠小兑~"
         id="donate"
         class="i18n-message"
         data-message="donate"
-        >捐赠</a
       >
+        捐赠
+      </a>
     </footer>
+
     <script src="./popup.js"></script>
   </body>
 </html>

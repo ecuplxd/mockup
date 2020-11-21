@@ -16,3 +16,9 @@ export interface IPos {
   height?: number;
   point?: IPoint;
 }
+
+export interface Color {
+  hoverColor: string;
+  selectedColor: string;
+  fontColor: string;
+}

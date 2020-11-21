@@ -50,5 +50,21 @@
   "donate": {
     "message": "捐赠",
     "description": ""
+  },
+  "hoverColor": {
+    "message": "经过",
+    "description": ""
+  },
+  "selectedColor": {
+    "message": "选中",
+    "description": ""
+  },
+  "fontColor": {
+    "message": "字体",
+    "description": ""
+  },
+  "colorTip": {
+    "message": "选完颜色后，请单击该弹出任意空白以生效。",
+    "description": ""
   }
 }
