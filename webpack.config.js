@@ -41,4 +41,11 @@ module.exports = {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
   ],
+  devServer: {
+    static: {
+      directory: __dirname,
+    },
+    compress: true,
+    port: 5000,
+  },
 };
